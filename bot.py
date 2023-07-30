@@ -1,14 +1,14 @@
-import dotenv
+from dotenv import load_dotenv
+import os
 from dotenv import dotenv_values
 from aiogram import Bot, Dispatcher, executor, types, filters
 from parse import term_reader
 from dbmanager import Database
+
+load_dotenv()
 vars = ["", "", "", False]
 
-dotenv_file = dotenv.find_dotenv()
-dotenv.load_dotenv(dotenv_file)
-API_TOKEN = dotenv_values(".env")["API_TOKEN"]
-bot = Bot(API_TOKEN)
+bot = Bot(os.getenv("API_TOKEN"), proxy=os.environ.get("PROXY_URL"))
 dispatcher = Dispatcher(bot)
 
 
