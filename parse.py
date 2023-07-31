@@ -5,8 +5,7 @@ from dotenv import dotenv_values
 from settings import *
 
 from pyvirtualdisplay import Display
-display = Display(visible=0, size=(800, 600))
-display.start()
+
 
 # переменные и хром
 auth_config = dotenv_values(".env")
