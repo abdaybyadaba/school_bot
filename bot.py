@@ -1,6 +1,5 @@
 from dotenv import load_dotenv
 import os
-import dotenv
 from dotenv import dotenv_values
 from aiogram import Bot, Dispatcher, executor, types, filters
 from parse import term_reader

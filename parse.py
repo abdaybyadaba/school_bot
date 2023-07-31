@@ -1,17 +1,20 @@
 import time
-import dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from dotenv import dotenv_values
 from settings import *
 
+from pyvirtualdisplay import Display
+display = Display(visible=0, size=(800, 600))
+display.start()
 
 # переменные и хром
 auth_config = dotenv_values(".env")
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)  # удержание страницы открытой
 options.add_argument("--start-maximized")
-options.add_argument("--headless")
+options.add_argument('--disable-dev-shm-usage')
+# options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-gpu")
 SCHOLL_PAGE = "https://login.school.mosreg.ru/?ReturnUrl=https%3a%2f%2fschools.school.mosreg.ru%2fschool.aspx"
@@ -55,6 +58,9 @@ def write_subject_row(row):
 
 
 def term_reader(actual_term, log, passw):
+    display = Display(visible=0, size=(800, 600))
+    display.start()
+
     browser = open_browser(options)
     browser.get(SCHOLL_PAGE)
     time.sleep(6)
@@ -67,5 +73,8 @@ def term_reader(actual_term, log, passw):
         subject_name = subject_row.find_element(By.CLASS_NAME, "s2").find_element(By.CLASS_NAME, "u").text
         term_stat[subject_name] = [(write_subject_row(subject_row))]
     time.sleep(2)
+
+    browser.close()
+    display.stop()
     return term_stat
 
