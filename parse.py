@@ -62,7 +62,9 @@ def term_reader(actual_term, log, passw):
 
     browser = open_browser(options)
     browser.get(SCHOLL_PAGE)
+    print(browser.current_url)
     print(browser.page_source)
+
     time.sleep(6)
     authorization(browser, log, passw)
     open_marks_tables(browser)
