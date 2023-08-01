@@ -15,7 +15,7 @@ options.add_argument("--disable-gpu")
 
 bw = webdriver.Chrome(options=options)
 time.sleep(5)
-bw.get("https://login.school.mosreg.ru/?ReturnUrl=https%3a%2f%2fschools.school.mosreg.ru%2fschool.aspx")
+bw.get("https://login.school.mosreg.ru/login/?ReturnUrl=https%3A%2F%2Fschool.mosreg.ru%2Fuserfeed")
 time.sleep(5)
 print("1", bw)
 print(bw.page_source, bw.current_url)

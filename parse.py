@@ -13,14 +13,17 @@ options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)  # удержание страницы открытой
 #options.add_argument("--start-maximized")
 options.add_argument("--no-sandbox")
-# options.add_argument("--headless")
-options.add_argument('--disable-dev-shm-usage')
+options.add_argument("--headless")
 options.add_argument("--disable-gpu")
-SCHOLL_PAGE = "https://login.school.mosreg.ru/?ReturnUrl=https%3a%2f%2fschools.school.mosreg.ru%2fschool.aspx"
+#options.add_argument('--disable-dev-shm-usage')
+
+SCHOLL_PAGE = "https://login.school.mosreg.ru/login/?ReturnUrl=https%3A%2F%2Fschool.mosreg.ru%2Fuserfeed"
 
 
 def open_browser(options):
-    return webdriver.Chrome(options=options)
+    vb = webdriver.Chrome(options=options)
+    print(vb)
+    return vb
 
 
 def open_marks_tables(driver):  # осуществляет переход к таблицам
