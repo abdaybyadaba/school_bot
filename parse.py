@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from dotenv import dotenv_values
 from settings import *
 
-from pyvirtualdisplay import Display
+#from pyvirtualdisplay import Display
 
 
 # переменные и хром
@@ -57,13 +57,13 @@ def write_subject_row(row):
 
 
 def term_reader(actual_term, log, passw):
-    display = Display(visible=0, size=(800, 600))
-    display.start()
+    #display = Display(visible=0, size=(800, 600))
+    #display.start()
 
     browser = open_browser(options)
     browser.get(SCHOLL_PAGE)
     print(browser.current_url)
-    print(browser.page_source)
+    # print(browser.page_source)
 
     time.sleep(6)
     authorization(browser, log, passw)
@@ -75,6 +75,6 @@ def term_reader(actual_term, log, passw):
         subject_name = subject_row.find_element(By.CLASS_NAME, "s2").find_element(By.CLASS_NAME, "u").text
         term_stat[subject_name] = [(write_subject_row(subject_row))]
     browser.close()
-    display.stop()
+    #display.stop()
     return term_stat
 
