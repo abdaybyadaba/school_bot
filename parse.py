@@ -12,9 +12,9 @@ auth_config = dotenv_values(".env")
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)  # удержание страницы открытой
 #options.add_argument("--start-maximized")
-options.add_argument('--disable-dev-shm-usage')
-# options.add_argument("--headless")
 options.add_argument("--no-sandbox")
+# options.add_argument("--headless")
+options.add_argument('--disable-dev-shm-usage')
 options.add_argument("--disable-gpu")
 SCHOLL_PAGE = "https://login.school.mosreg.ru/?ReturnUrl=https%3a%2f%2fschools.school.mosreg.ru%2fschool.aspx"
 
@@ -38,7 +38,6 @@ def open_marks_tables(driver):  # осуществляет переход к т�
 def authorization(driver, login, password):
     print(driver.current_url)
     print("1st action")
-    print(driver.find_element_by_class_xpath("/html/body").text)
     driver.find_element(By.NAME, "login").send_keys(login)
     print("2nd action")
     driver.find_element(By.NAME, "password").send_keys(password)
