@@ -16,6 +16,8 @@ options.add_argument("--disable-gpu")
 bw = webdriver.Chrome(options=options)
 bw.get("https://login.school.mosreg.ru/?ReturnUrl=https%3a%2f%2fschools.school.mosreg.ru%2fschool.aspx")
 print("1", bw)
+print(bw.page_source)
+
 log = bw.find_element(By.NAME, "login")
 print("2", bw, log)
 log.send_keys("spd")
