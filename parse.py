@@ -6,24 +6,21 @@ from settings import *
 
 #from pyvirtualdisplay import Display
 
-
+SCHOLL_PAGE = "https://login.school.mosreg.ru/login/?ReturnUrl=https%3A%2F%2Fschool.mosreg.ru%2Fuserfeed"
 # переменные и хром
 auth_config = dotenv_values(".env")
-options = webdriver.ChromeOptions()
-options.add_experimental_option("detach", True)  # удержание страницы открытой
-#options.add_argument("--start-maximized")
-options.add_argument("--no-sandbox")
-options.add_argument("--headless")
-options.add_argument("--disable-gpu")
-#options.add_argument('--disable-dev-shm-usage')
-
-SCHOLL_PAGE = "https://login.school.mosreg.ru/login/?ReturnUrl=https%3A%2F%2Fschool.mosreg.ru%2Fuserfeed"
 
 
-def open_browser(options):
-    vb = webdriver.Chrome(options=options)
-    print(vb)
-    return vb
+
+def open_browser():
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option("detach", True)  # удержание страницы открытой
+    # options.add_argument("--start-maximized")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
+    # options.add_argument('--disable-dev-shm-usage')
+    return webdriver.Chrome(options=options)
 
 
 def open_marks_tables(driver):  # осуществляет переход к таблицам
@@ -66,7 +63,7 @@ def term_reader(actual_term, log, passw):
     #display = Display(visible=0, size=(800, 600))
     #display.start()
 
-    browser = open_browser(options)
+    browser = open_browser()
     browser.get(SCHOLL_PAGE)
     print(browser.current_url)
     # print(browser.page_source)
