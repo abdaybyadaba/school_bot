@@ -36,7 +36,11 @@ def open_marks_tables(driver):  # осуществляет переход к т�
 
 
 def authorization(driver, login, password):
+    print(driver.current_url)
+    print("1st action")
+    print(driver.get_attribute('innerHTML'))
     driver.find_element(By.NAME, "login").send_keys(login)
+    print("2nd action")
     driver.find_element(By.NAME, "password").send_keys(password)
 
 
@@ -66,7 +70,9 @@ def term_reader(actual_term, log, passw):
     # print(browser.page_source)
 
     time.sleep(6)
+    print("1st phase")
     authorization(browser, log, passw)
+    print("2nd phase")
     open_marks_tables(browser)
     term_stat = subjects_structure
     browser.find_element(By.CLASS_NAME, "switch").find_elements(By.TAG_NAME, "li")[actual_term].click()
