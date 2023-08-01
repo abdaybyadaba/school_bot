@@ -73,7 +73,7 @@ def term_reader(actual_term, log, passw):
     print(browser.current_url)
     # print(browser.page_source)
 
-    time.sleep(6)
+    time.sleep(20)
     print("1st phase")
     authorization(browser, log, passw)
     print("2nd phase")
