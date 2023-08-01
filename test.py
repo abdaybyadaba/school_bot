@@ -14,7 +14,9 @@ options.add_argument("--disable-gpu")
 #options.add_argument('--disable-dev-shm-usage')
 
 bw = webdriver.Chrome(options=options)
+time.sleep(5)
 bw.get("https://login.school.mosreg.ru/?ReturnUrl=https%3a%2f%2fschools.school.mosreg.ru%2fschool.aspx")
+time.sleep(5)
 print("1", bw)
 print(bw.page_source, bw.current_url)
 
