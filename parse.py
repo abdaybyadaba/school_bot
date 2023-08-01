@@ -21,7 +21,8 @@ def open_browser():
     options.add_argument("--headless")
     options.add_argument("--disable-gpu")
     print("2")
-    options.add_argument('--disable-blink-features=AutomationControlled')
+
+    print("3")
     # options.add_argument('--disable-dev-shm-usage')
     return webdriver.Chrome(options=options)
 
@@ -67,6 +68,7 @@ def term_reader(actual_term, log, passw):
     #display.start()
 
     browser = open_browser()
+    time.sleep(20)
     browser.get(SCHOLL_PAGE)
     print(browser.current_url)
     # print(browser.page_source)
