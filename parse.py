@@ -62,6 +62,7 @@ def term_reader(actual_term, log, passw):
 
     browser = open_browser(options)
     browser.get(SCHOLL_PAGE)
+    print(browser.page_source)
     time.sleep(6)
     authorization(browser, log, passw)
     open_marks_tables(browser)
@@ -71,8 +72,6 @@ def term_reader(actual_term, log, passw):
     for subject_row in browser.find_element(By.ID, "journal").find_elements(By.TAG_NAME, "tr")[2:]:
         subject_name = subject_row.find_element(By.CLASS_NAME, "s2").find_element(By.CLASS_NAME, "u").text
         term_stat[subject_name] = [(write_subject_row(subject_row))]
-    time.sleep(2)
-
     browser.close()
     display.stop()
     return term_stat
