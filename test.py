@@ -14,3 +14,4 @@ options.add_argument("--disable-gpu")
 #options.add_argument('--disable-dev-shm-usage')
 
 bw = webdriver.Chrome(options=options)
+print(bw)
