@@ -38,7 +38,7 @@ def open_marks_tables(driver):  # осуществляет переход к т�
 def authorization(driver, login, password):
     print(driver.current_url)
     print("1st action")
-    print(driver.get_attribute('innerHTML'))
+    print(driver.find_element_by_class_xpath("/html/body").text)
     driver.find_element(By.NAME, "login").send_keys(login)
     print("2nd action")
     driver.find_element(By.NAME, "password").send_keys(password)
