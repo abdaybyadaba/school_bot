@@ -18,6 +18,6 @@ bw.get("https://login.school.mosreg.ru/?ReturnUrl=https%3a%2f%2fschools.school.m
 print("1", bw)
 print(bw.page_source, bw.current_url)
 
-log = bw.find_element(By.CLASS_NAME, "mosreg-login-form").find_element(By.NAME, "login")
+log = bw.find_element(By.CLASS_NAME, "mosreg-login-block__content").find_element(By.NAME, "mosreg-login-form")
 print("2", bw, log)
 log.send_keys("spd")
