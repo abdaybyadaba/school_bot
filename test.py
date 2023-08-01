@@ -1,9 +1,8 @@
-from dotenv import load_dotenv
-import os
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 from dotenv import dotenv_values
-from aiogram import Bot, Dispatcher, executor, types, filters
-from parse import term_reader
-from dbmanager import Database
+from settings import *
 
 
 options = webdriver.ChromeOptions()
