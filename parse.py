@@ -73,6 +73,7 @@ def term_reader(actual_term, log, passw):
     print(browser.current_url)
     print(browser.page_source)
     while True:
+        browser.get(SCHOLL_PAGE)
         if browser.page_source != "<html><head></head><body></body></html>":
             break
 
