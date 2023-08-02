@@ -68,12 +68,13 @@ def term_reader(actual_term, log, passw):
     #display.start()
 
     browser = open_browser()
-    time.sleep(20)
+    time.sleep(10)
     browser.get(SCHOLL_PAGE)
     print(browser.current_url)
+    print(browser.page_source)
     # print(browser.page_source)
 
-    time.sleep(20)
+    time.sleep(10)
     print("1st phase")
     authorization(browser, log, passw)
     print("2nd phase")
