@@ -72,9 +72,10 @@ def term_reader(actual_term, log, passw):
     browser.get(SCHOLL_PAGE)
     print(browser.current_url)
     print(browser.page_source)
-    # print(browser.page_source)
+    while True:
+        if browser.page_source != "<html><head></head><body></body></html>":
+            break
 
-    time.sleep(10)
     print("1st phase")
     authorization(browser, log, passw)
     print("2nd phase")
